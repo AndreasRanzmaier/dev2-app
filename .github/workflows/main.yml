@@ -31,4 +31,4 @@ jobs:
           python -m pip install -e .[lint]
 
       - name: Lint code # check the syntax of our python
-        run: ruff check --output-format=github
+        run: ruff check --output-format=github .
