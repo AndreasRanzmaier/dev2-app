@@ -1,0 +1,34 @@
+# naming
+name: Python Lint and Test
+run-name: L+T, triggered by ${{github.actor}}
+
+# events that trigger our workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo # checkout the current repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # limits the fetching to the latest commit
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: | # install all the required packages form our .toml file, requirements txt would also work. keep dependencies sorted 
+          python -m pip install -e .
+          python -m pip install -e .[lint]
+
+      - name: Lint code # check the syntax of our python
+        run: ruff check --output-format=github
