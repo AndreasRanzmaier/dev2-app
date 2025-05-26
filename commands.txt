@@ -1,0 +1,42 @@
+running docker image from command line 
+with interactive shell 
+ti is 2 commands -- interactive --tty
+
+    docker run --name dev2-container --rm -ti python:3.13.3-slim bash
+
+
+then copying from our machine into the image  (execute on our machine)
+
+    docker cp src dev2-container:/app
+    docker cp pyproject.toml dev2-container:/app
+
+installing required dependencies 
+
+    python -m pip install -e . 
+
+calling python main.py which starts our webserver
+
+    dev2il-devops-app
+
+webserver port is still closed 
+
+building our own image with dockerfile 
+
+    > docker build -t dev2-app-custom:latest .  
+
+matching inside and outside port 
+port forwarding 
+    
+    docker run --rm -p 9999:8000 dev2-app-custom:latest
+
+http://localhost:9999/
+
+
+now we want to automat the dockerfile to image 
+process to see the image in the github ghcr 
+github container registry
+    - checkout repository 
+    - auth for ghcr ( could also be another place like our sys docker )
+    (- extracting metadata)
+    - build and push image 
+    (-artifact attestation)
