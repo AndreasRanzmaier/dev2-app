@@ -5,7 +5,7 @@ run-name: Packaging, triggered by ${{ github.actor }} 📦
 on:
   push:
     tags:
-      - v*
+      - v* # Trigger only on v version tags
 
 env:
   REGISTRY: ghcr.io

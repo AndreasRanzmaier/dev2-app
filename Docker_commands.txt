@@ -40,3 +40,8 @@ github container registry
     (- extracting metadata)
     - build and push image 
     (-artifact attestation)
+
+on a push the packaging workflow wont get started as it is missing the 
+version v tag
+
+    git tag -a v1.0 -m 'release version 1.0'
