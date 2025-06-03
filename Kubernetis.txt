@@ -1,0 +1,28 @@
+sourcegit gui for git 
+headlamp gui for k8 
+
+#Kubernetis local machine config
+    > kubectl config view
+
+#namespace is now a collection of resources 
+    > kubectl create namespace dev2 
+    > kubectl config set-context --current --namespace=dev2
+
+# goal is now to have one pod with one container running nginx a webserver
+# first create .infrastructure/k8s folders
+# configure yaml file and apply
+    > kubectl apply -f pod-nginx.yaml    
+    > kubectl get pods
+
+# we can check this with a portforward 
+# looking if we can acces the cluster
+    > kubectl port-forward pod/nginx 8080:80
+
+# check if its running by connecting via the browser
+    http://localhost:8080/
+
+# create new yaml 
+> kubectl apply -f pod-httpd.yaml
+
+# new portforward
+> kubectl port-forward pod/httpd 8080:80
