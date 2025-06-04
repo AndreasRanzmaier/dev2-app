@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
         - name: dev2-app
-          image: ghcr.io/jkarder/dev2-app-test-1:latest
+          # image: ghcr.io/jkarder/dev2-app-test-1:latest
+          image: ghcr.io/andreasranzmaier/dev2-app:latest
           ports:
             - containerPort: 8000
             - containerPort: 9000

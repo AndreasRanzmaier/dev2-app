@@ -15,8 +15,8 @@ headlamp gui for k8
     > kubectl get pods
 
 # we can check this with a portforward 
-# looking if we can acces the cluster
-    > kubectl port-forward pod/nginx 8080:80
+# looking if we can acces the cluster 
+    > kubectl port-forward pod/nginx 80800
 
 # check if its running by connecting via the browser
     http://localhost:8080/
@@ -26,3 +26,9 @@ headlamp gui for k8
 
 # new portforward
 > kubectl port-forward pod/httpd 8080:80
+
+# applying
+> dev2-app
+> dev2-cron
+> monitoring 
+
